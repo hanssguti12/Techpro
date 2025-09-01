@@ -1,0 +1,342 @@
+body { 
+  margin: 0;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #6e8efb, #a777e3, #6e8efb);
+  background-size: 400% 400%;
+  animation: gradientBackground 15s ease infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Estilos formulario login */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.login-form {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 320px;
+}
+
+.login-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.login-form input {
+  width: calc(100% - 30px);
+  padding: 12px;
+  margin: 8px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.login-btn {
+  width: 90%;
+  padding: 12px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+  box-sizing: border-box;
+}
+
+.login-btn:hover {
+  background-color: #0052a3;
+}
+
+/* botón de cerrar sesión - Mejorado para evitar superposición */
+.logout-btn {
+  padding: 8px 12px;
+  background-color: #cc0000;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  margin-bottom: 20px; /* Espacio adicional para evitar superposición */
+}
+
+.logout-btn:hover {
+  background-color: #a30000;
+}
+
+h2, h3 { 
+  color: #333; 
+  margin-top: 0;
+}
+
+form { 
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+input { 
+  margin: 5px 0; 
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex: 1 1 150px;
+  box-sizing: border-box;
+}
+
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  background: white; 
+  margin-bottom: 20px; 
+  table-layout: fixed;
+}
+
+th, td { 
+  border: 1px solid #ccc; 
+  padding: 8px; 
+  text-align: center; 
+  word-wrap: break-word;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px; 
+  cursor: pointer; 
+  font-size: 14px;
+  margin: 2px; /* Espacio entre botones */
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+h3 { 
+  background: #222; 
+  color: white; 
+  padding: 10px; 
+  text-align: right; 
+  margin: 0;
+}
+
+#finalizarCompraBtn {
+  background-color: #dc3545;
+  margin-bottom: 15px;
+}
+
+#finalizarCompraBtn:hover {
+  background-color: #c82333;
+}
+
+/* Contenedor principal de la tienda */
+#tiendaDiv {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Media Queries para Responsividad - MEJORADAS */
+@media screen and (max-width: 1024px) {
+  /* Para tablets y pantallas medianas */
+  th:nth-child(2), td:nth-child(2) { /* Descripción */
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    padding: 10px;
+  }
+  
+  #tiendaDiv {
+    padding: 15px;
+  }
+  
+  form {
+    flex-direction: column;
+  }
+  
+  input {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  
+  table {
+    font-size: 14px;
+  }
+  
+  th, td {
+    padding: 6px 4px;
+  }
+  
+  .logout-btn {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin-bottom: 15px;
+    width: auto;
+    display: block;
+    margin-left: auto;
+  }
+  
+  /* Ocultar columnas menos importantes en tablets */
+  .cart-table th:nth-child(3), 
+  .cart-table td:nth-child(3), /* Cantidad en carrito */
+  .history-table th:nth-child(3),
+  .history-table td:nth-child(3) { /* Cantidad en historial */
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /* Para móviles más pequeños */
+  .product-table th:nth-child(4), 
+  .product-table td:nth-child(4) { /* Stock */
+    display: none;
+  }
+  
+  .cart-table th:nth-child(4),
+  .cart-table td:nth-child(4), /* Precio en carrito */
+  .history-table th:nth-child(4),
+  .history-table td:nth-child(4) { /* Precio en historial */
+    display: none;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body {
+    padding: 5px;
+  }
+  
+  #tiendaDiv {
+    padding: 10px;
+  }
+  
+  .login-form {
+    padding: 20px;
+  }
+  
+  table {
+    font-size: 12px;
+  }
+  
+  th, td {
+    padding: 4px 2px;
+  }
+  
+  button {
+    padding: 6px 10px;
+    font-size: 12px;
+    margin: 1px;
+  }
+  
+  h2 {
+    font-size: 18px;
+  }
+  
+  h3 {
+    font-size: 16px;
+    padding: 8px;
+  }
+  
+  /* Para móviles muy pequeños, mostrar solo información esencial */
+  .product-table th:nth-child(1), 
+  .product-table td:nth-child(1), /* Nombre */
+  .product-table th:nth-child(3), 
+  .product-table td:nth-child(3), /* Precio */
+  .product-table th:nth-child(5), 
+  .product-table td:nth-child(5) { /* Acciones */
+    display: table-cell;
+  }
+  
+  .cart-table th:nth-child(2), 
+  .cart-table td:nth-child(2), /* Producto */
+  .cart-table th:nth-child(5), 
+  .cart-table td:nth-child(5), /* Total */
+  .cart-table th:nth-child(6), 
+  .cart-table td:nth-child(6) { /* Acciones */
+    display: table-cell;
+  }
+  
+  .history-table th:nth-child(2), 
+  .history-table td:nth-child(2), /* Producto */
+  .history-table th:nth-child(5), 
+  .history-table td:nth-child(5) { /* Total */
+    display: table-cell;
+  }
+}
+
+/* Estilos para tablas responsivas */
+.table-container {
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+/* Clases específicas para cada tabla */
+.product-table th:nth-child(1), 
+.product-table td:nth-child(1) { /* Nombre */
+  width: 20%;
+}
+
+.product-table th:nth-child(2), 
+.product-table td:nth-child(2) { /* Descripción */
+  width: 25%;
+}
+
+.product-table th:nth-child(3), 
+.product-table td:nth-child(3) { /* Precio */
+  width: 15%;
+}
+
+.product-table th:nth-child(4), 
+.product-table td:nth-child(4) { /* Stock */
+  width: 15%;
+}
+
+.product-table th:nth-child(5), 
+.product-table td:nth-child(5) { /* Acciones */
+  width: 25%;
+}
+
+/* Asegurar que los botones en celda de acciones no se superpongan */
+.product-table td:nth-child(5) {
+  white-space: nowrap;
+}
+
+/* Mejora para el botón de cerrar sesión con mucho contenido */
+.content-wrapper {
+  position: relative;
+  padding-top: 50px; /* Espacio para el botón de cerrar sesión */
+}

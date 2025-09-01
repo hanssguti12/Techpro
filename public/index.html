@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="Tienda de Equipos Tecnológicos">
+
+  <title>TechPro</title>
+
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="icon" href="assets/icon.png" type="image/png">
+
+  <script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+</head>
+
+<body>
+  <div id="loginDiv" class="login-container">
+    <div class="login-form">
+      <h2>Inicio de Sesión</h2>
+
+      <input type="text" id="username" maxlength="5" placeholder="Usuario" required>
+      <input type="password" id="password" maxlength="5" placeholder="Contraseña" required>
+
+     <button id="btnLogin" class="login-btn">Iniciar sesión</button>
+
+    </div>
+
+    <!-- <p>Usuario por defecto: admin | Contraseña: 1234</p> -->
+  </div>
+
+  <div id="tiendaDiv" style="display:none" class="content-wrapper">
+
+    <!-- Botón para cerrar sesión en la tienda -->
+    <button id="btnLogout" class="logout-btn">Cerrar sesión</button>
+
+    <form id="productoForm">
+      <input type="text" id="nombre" maxlength="10" pattern="[a-zA-Z\s]+" placeholder="Nombre" title="Solo letras y espacios, sin acentos, números ni símbolos" required>
+
+      <input type="text" id="descripcion" maxlength="10" pattern="[a-zA-Z\s]+" placeholder="Descripción" title="Solo letras y espacios, sin acentos, números ni símbolos" required>
+
+      <input type="number" id="precio" min="0" pattern="[0-9]+" placeholder="Precio" title="Solo números permitidos" required>
+
+      <input type="number" id="stock" min="0" pattern="[0-9]+" placeholder="Stock" title="Solo números permitidos" required>
+
+      <button type="submit">Agregar Producto</button>
+    </form>
+
+    <h2>Lista de Productos</h2>
+    <div class="table-container">
+      <table class="product-table">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody id="tablaProductos"></tbody>
+      </table>
+    </div>
+
+    <h2> Carrito de Compras</h2>
+    <button id="finalizarCompraBtn"> Finalizar Compra</button>
+    <div class="table-container">
+      <table class="cart-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+            <th>Total</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+
+        <tbody id="tablaCarrito"></tbody>
+      </table>
+    </div>
+    <h3 id="totalCarrito">Total: $0</h3>
+
+    <h2> Historial de Compras</h2>
+    <div class="table-container">
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Total</th>
+            <th>Fecha</th>
+          </tr>
+        </thead>
+        <tbody id="historialCompras"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
